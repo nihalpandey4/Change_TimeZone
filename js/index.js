@@ -11,11 +11,12 @@ Date.prototype.addTime = function(hours, minutes) {
     this.setTime(this.getTime() + (hours * 60 * 60 * 1000) + (minutes * 60 * 1000));
   return this;
 }
-
+const def=document.querySelector("#default");
+def.value=Date().slice(28,31)+":"+Date().slice(31,33);
 const ans=document.querySelector("#answer");
 setInterval(function(){
-  h=Number(test.value.slice(0,3))-5;
-  m=Number(test.value.slice(4,6))-30;
+  h=Number(test.value.slice(0,3))-Number(Date().slice(29,31));
+  m=Number(test.value.slice(4,6))-Number(Date().slice(31,33));
   var a = new Date();
   a.addTime(h,m);
   ans.innerHTML=String(a).slice(0,21);
